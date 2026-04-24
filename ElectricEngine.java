@@ -16,4 +16,9 @@ class ElectricEngine implements Engine {
     public int speed() {
         return speed;
     }
+
+    @Override
+    public void notifySpeed(int currentSpeed) {
+        // Electric engine is notified of current speed
+    }
 }

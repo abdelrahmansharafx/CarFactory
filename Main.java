@@ -1,12 +1,8 @@
 class Main {
 	public static void main(String[] args) {
-		Engine electricEngine = new ElectricEngine();
-		Engine dieselEngine = new DiselEngine();
-		HybridEngine hybridEngine = new HybridEngine();
-
-		Car electricCar = new Car(electricEngine, "Electric Car");
-		Car dieselCar = new Car(dieselEngine, "Diesel Car");
-		Car hybridCar = new Car(hybridEngine, "Hybrid Car");
+		Car electricCar = CarFactory.createCar("electric");
+		Car dieselCar = CarFactory.createCar("diesel");
+		Car hybridCar = CarFactory.createCar("hybrid");
 
 		System.out.println("---------------------------------Electric Car--------------------------------");
 		electricCar.start();
@@ -31,17 +27,17 @@ class Main {
 		hybridCar.accelerate();
 		hybridCar.accelerate();
 		System.out.println("Hybrid speed: " + hybridCar.getSpeed());
-		System.out.println("Hybrid Car is using " + hybridEngine.currentEngine() + " engine.");
+		System.out.println("Hybrid Car is using " + hybridCar.currentEngine() + " engine.");
 		hybridCar.accelerate();
 		System.out.println("Hybrid speed: " + hybridCar.getSpeed());
-		System.out.println("Hybrid Car is using " + hybridEngine.currentEngine() + " engine.");
+		System.out.println("Hybrid Car is using " + hybridCar.currentEngine() + " engine.");
 		hybridCar.brake();
 		System.out.println("Hybrid speed: " + hybridCar.getSpeed());
-		System.out.println("Hybrid Car is using " + hybridEngine.currentEngine() + " engine.");
+		System.out.println("Hybrid Car is using " + hybridCar.currentEngine() + " engine.");
 		hybridCar.stop();
 
 		System.out.println("---------------------------------Replace Engine---------------------------------");
-		electricCar.replaceEngine(new DiselEngine());
+		CarFactory.replaceEngine(electricCar, "diesel");
 		electricCar.accelerate();
 		System.out.println(electricCar.getSpeed());
 	}
