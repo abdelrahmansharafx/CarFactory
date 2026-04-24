@@ -32,11 +32,6 @@ class HybridEngine implements Engine {
         return "diesel";
     }
 
-    @Override
-    public void notifySpeed(int currentSpeed) {
-        // Hybrid engine is notified of current speed
-    }
-
     private void synchronizeActiveEngine() {
         if (speed <= 50) {
             while (electricEngine.speed() < speed) {

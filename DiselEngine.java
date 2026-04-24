@@ -16,9 +16,4 @@ class DiselEngine implements Engine {
     public int speed() {
         return speed;
     }
-
-    @Override
-    public void notifySpeed(int currentSpeed) {
-        // Diesel engine is notified of current speed
-    }
 }

@@ -38,7 +38,6 @@ class Car {
         for (int i = 0; i < Math.min(20, 200 - engine.speed()); i++) {
             engine.increase();
         }
-        engine.notifySpeed(engine.speed());
     }
     // Braking will decrease speed by 20 km/hr down to 0 km/hr
     public void brake() {
@@ -46,7 +45,6 @@ class Car {
         for (int i = 0; i < Math.min(20, engine.speed()); i++) {
             engine.decrease();
         }
-        engine.notifySpeed(engine.speed());
     }
 
     public int getSpeed() {
